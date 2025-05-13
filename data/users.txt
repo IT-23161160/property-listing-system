@@ -1,0 +1,2 @@
+065714d5|Admin|admin@gmail.com|$2a$10$W2Vrg96T1Zf3OuIEqCCJ7ul56zfAZzz8LDEZTujROa3E7iZBW5kH2|ADMIN
+fa18b3b8|Kaveen|patient@gmail.com|$2a$10$LoLPjE3Z0/dgZVs3uisUfOtCSCuLOQ1FXhoUBW2voqRTtm8W1tpKW|BUYER
