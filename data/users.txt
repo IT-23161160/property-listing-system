@@ -1,2 +1,5 @@
 065714d5|Admin|admin@gmail.com|$2a$10$W2Vrg96T1Zf3OuIEqCCJ7ul56zfAZzz8LDEZTujROa3E7iZBW5kH2|ADMIN
 fa18b3b8|Kaveen|patient@gmail.com|$2a$10$LoLPjE3Z0/dgZVs3uisUfOtCSCuLOQ1FXhoUBW2voqRTtm8W1tpKW|BUYER
+b0e907d5|Seller|seller@gmail.com|$2a$10$vxWuiN/GAa8z1Ew/6jYRKuxslIb8DR96Iue9Odpc/PTYb5EGAH.om|SELLER
+4a79caa7|buyer|buyer@gmail.com|$2a$10$QBAqj1TkmAWZIU6g2CnlKO/GJwcb4STS0osbQ64uZ9ULh8Af0MHmK|BUYER
+315ba315|Regal|doctor@gmail.com|$2a$10$ipupk/LwqCjhGmRrBUrxveDS0H8CHfTavgmymR5WhGNoBMVSsO7iG|SELLER

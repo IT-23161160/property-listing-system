@@ -15,13 +15,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('/css/images/background.jpg');
+            background:
+                    linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.8)), /* white overlay */
+                    url('/css/images/background.jpg'); /* image layer */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             filter: blur(10px);
             z-index: -1;
         }
+
         h2, h4, h5 {
             color: #03942a;
         }

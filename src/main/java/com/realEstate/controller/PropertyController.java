@@ -45,6 +45,7 @@ public class PropertyController {
     public String showAddPropertyForm(Model model) {
         model.addAttribute("property", new Property());
         model.addAttribute("categories", categoryService.getAllCategories());
+        model.addAttribute("isAdmin", false);  // Explicit flag for seller requests
         return "addProperty";
     }
 

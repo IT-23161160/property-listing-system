@@ -1,0 +1,3 @@
+500d|House
+2bea|Apartment
+a630|Land

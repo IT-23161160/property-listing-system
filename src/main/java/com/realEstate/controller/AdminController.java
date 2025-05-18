@@ -4,13 +4,17 @@ import com.realEstate.model.Booking;
 import com.realEstate.model.Property;
 import com.realEstate.model.User;
 import com.realEstate.service.BookingService;
+import com.realEstate.service.CategoryService;
 import com.realEstate.service.PropertyService;
 import com.realEstate.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +28,8 @@ public class AdminController {
     private PropertyService propertyService;
     @Autowired
     private BookingService bookingService;
+    @Autowired
+    private CategoryService categoryService;
 
     public AdminController(UserService userService, PropertyService propertyService) {
         this.userService = userService;
@@ -133,5 +139,31 @@ public class AdminController {
     public String deleteBooking(@PathVariable("id") String requestId) {
         bookingService.deleteBooking(requestId);
         return "redirect:/admin/bookings";
+    }
+
+    @GetMapping("/properties/add")
+    public String showAddPropertyForm(Model model, HttpServletRequest request) {
+        model.addAttribute("property", new Property());
+        model.addAttribute("categories", categoryService.getAllCategories());
+        model.addAttribute("isAdmin", true);
+        model.addAttribute("sellers", userService.getAllAdmins()); // Explicit flag for admin requests
+        return "addProperty";
+    }
+
+    @PostMapping("/properties/add")
+    public String addPropertyAsAdmin(@ModelAttribute Property property,
+                                     @RequestParam("imageFile") MultipartFile imageFile) {
+        try {
+            // For admin-added properties, use the first available seller
+            User seller = userService.getAllUsers().stream()
+                    .filter(u -> "SELLER".equals(u.getRole()))
+                    .findFirst()
+                    .orElseThrow(() -> new IllegalStateException("No sellers found"));
+
+            propertyService.addProperty(property, seller.getUserId(), imageFile);
+            return "redirect:/admin/properties";
+        } catch (IOException e) {
+            return "redirect:/admin/properties/add?error=Error+uploading+property";
+        }
     }
 }
