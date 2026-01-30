@@ -2,11 +2,11 @@
 
 A comprehensive web-based property listing application built with Spring Boot that allows users to browse, add, and manage real estate properties with advanced data structure implementations.
 
-## 🚀 Project Overview
+## Project Overview
 
 The Property Listing System is a full-featured web application that provides a platform for property management. It features user authentication with role-based access (Admin, Seller, Buyer), property categorization, image uploads, reviews, favorites, and advanced sorting capabilities. The system uses file-based storage and implements custom data structures for optimal performance.
 
-## 🛠️ Tools and Frameworks Used
+## Tools and Frameworks Used
 
 ### Backend Framework
 - **Spring Boot 3.x** - Main application framework
@@ -30,7 +30,7 @@ The Property Listing System is a full-featured web application that provides a p
 - **Java 17+** - Programming language
 - **Jakarta EE** - Enterprise Java specifications
 
-## 📊 Data Structures Used
+## Data Structures Used
 
 ### Custom Implementations
 1. **Binary Search Tree (BST)**
@@ -65,7 +65,7 @@ uploads/
 └── properties/           # Property images storage
 ```
 
-## 🎯 Object-Oriented Programming (OOP) Concepts Used
+## Object-Oriented Programming (OOP) Concepts Used
 
 ### 1. Encapsulation
 - **Private Fields**: All model classes use private attributes
@@ -102,7 +102,7 @@ public class Property {
 - **MVC Pattern**: Controllers, Services, and Views separation
 - **Dependency Injection**: Spring's IoC container
 
-## 📋 Features
+## Features
 
 - **User Management**: Registration, login, role-based access control
 - **Property Management**: CRUD operations with image uploads
@@ -113,7 +113,7 @@ public class Property {
 - **Admin Panel**: Administrative property management
 - **Responsive Design**: Mobile-friendly interface
 
-## 🔧 Setup Guide
+## Setup Guide
 
 ### Prerequisites
 - **Java 17 or higher**
@@ -190,7 +190,7 @@ public class Property {
 3. **Add Properties**: Start adding properties with images
 4. **Test Features**: Test search, sort, and filter functionality
 
-## 🔑 User Roles & Permissions
+## User Roles & Permissions
 
 | Role | Permissions |
 |------|-------------|
@@ -198,7 +198,7 @@ public class Property {
 | **Seller** | Add/edit/delete own properties, view analytics |
 | **Buyer** | Browse properties, add reviews, manage favorites |
 
-## 📱 API Endpoints
+## API Endpoints
 
 ### Property Management
 - `GET /properties/all` - List all properties
@@ -212,7 +212,7 @@ public class Property {
 - `POST /register` - User registration
 - `GET /dashboard` - User dashboard
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run all tests
@@ -225,7 +225,7 @@ mvn test -Dtest=PropertyServiceTest
 mvn test jacoco:report
 ```
 
-## 📊 Performance Characteristics
+## Performance Characteristics
 
 | Operation | Data Structure | Time Complexity | Space Complexity |
 |-----------|----------------|-----------------|------------------|
@@ -234,7 +234,7 @@ mvn test jacoco:report
 | Sort by Price | QuickSort | O(n log n) | O(log n) |
 | List All Properties | BST In-order | O(n) | O(n) |
 
-## 🛡️ Security Features
+## Security Features
 
 - **Authentication**: Spring Security integration
 - **Authorization**: Role-based access control
@@ -242,7 +242,7 @@ mvn test jacoco:report
 - **Input Validation**: Form data sanitization
 - **CSRF Protection**: Cross-site request forgery prevention
 
-## 🚀 Future Enhancements
+## Future Enhancements
 
 - Database integration (MySQL/PostgreSQL)
 - RESTful API development
@@ -252,11 +252,11 @@ mvn test jacoco:report
 - Mobile application
 - Map integration
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
@@ -264,11 +264,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📞 Contact
+## Contact
 
 - **Developer**: IT-23161160
 - **Repository**: [property-listing-system](https://github.com/IT-23161160/property-listing-system)
 
 ---
-
-**Built with ❤️ using Spring Boot and custom data structures**
