@@ -1,0 +1,51 @@
+services:
+  db:
+    image: mysql:8.4
+    container_name: realestate_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: property_listing_db
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-Kaveen@328}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p$$MYSQL_ROOT_PASSWORD || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: realestate_backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/property_listing_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_ROOT_PASSWORD:-Kaveen@328}
+      FILE_UPLOAD_DIR: /app/uploads/properties
+    ports:
+      - "8080:8080"
+    volumes:
+      - uploads_data:/app/uploads/properties
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: realestate_frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "4200:80"
+
+volumes:
+  mysql_data:
+  uploads_data:

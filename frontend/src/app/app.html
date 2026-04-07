@@ -1,0 +1,27 @@
+<div class="app-shell">
+  <header class="topbar">
+    <a class="brand" routerLink="/properties">Real Estate</a>
+
+    <nav *ngIf="isLoggedIn" class="nav-links">
+      <a routerLink="/properties">Properties</a>
+      <a *ngIf="user?.role === 'BUYER'" routerLink="/favorites">Favorites</a>
+      <a *ngIf="user?.role === 'BUYER'" routerLink="/bookings/my">My Bookings</a>
+      <a *ngIf="user?.role === 'SELLER'" routerLink="/seller/properties">Seller Dashboard</a>
+      <a *ngIf="user?.role === 'SELLER'" routerLink="/seller/bookings">Seller Bookings</a>
+      <a *ngIf="user?.role === 'ADMIN'" routerLink="/admin">Admin Panel</a>
+      <a *ngIf="user?.role === 'ADMIN'" routerLink="/categories">Categories</a>
+      <a routerLink="/profile">Profile</a>
+    </nav>
+
+    <div class="auth-actions" *ngIf="!isLoggedIn">
+      <a routerLink="/login">Login</a>
+      <a routerLink="/register">Register</a>
+    </div>
+
+    <button *ngIf="isLoggedIn" class="logout" (click)="logout()">Logout</button>
+  </header>
+
+  <main class="page-wrap">
+    <router-outlet />
+  </main>
+</div>

@@ -1,0 +1,70 @@
+.app-shell {
+	min-height: 100dvh;
+}
+
+.topbar {
+	position: sticky;
+	top: 0;
+	z-index: 20;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 0.9rem 1.25rem;
+	background: rgba(12, 28, 38, 0.82);
+	backdrop-filter: blur(12px);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brand {
+	font-family: 'Sora', sans-serif;
+	letter-spacing: 0.04em;
+	color: #f6f1e8;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.nav-links,
+.auth-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.85rem;
+}
+
+.nav-links a,
+.auth-actions a,
+.logout {
+	color: #f6f1e8;
+	font-size: 0.92rem;
+	text-decoration: none;
+	background: transparent;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	padding: 0.42rem 0.72rem;
+	border-radius: 999px;
+	cursor: pointer;
+	transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-links a:hover,
+.auth-actions a:hover,
+.logout:hover {
+	transform: translateY(-1px);
+	background: rgba(255, 255, 255, 0.12);
+}
+
+.page-wrap {
+	max-width: 1120px;
+	margin: 0 auto;
+	padding: 1.2rem;
+}
+
+@media (max-width: 780px) {
+	.topbar {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.page-wrap {
+		padding: 0.8rem;
+	}
+}
